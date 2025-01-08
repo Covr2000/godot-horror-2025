@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dcyh2come7xj6"
-path="res://.godot/imported/goblin.gltf-a0a19de139627a75a985d223c19f1a1d.scn"
+uid="uid://b4qsd76svgwam"
+path="res://.godot/imported/pristoni+derevo.gltf-3376f27e60078dd821a7f3572e8c27b4.scn"
 
 [deps]
 
-source_file="res://goblin.gltf"
-dest_files=["res://.godot/imported/goblin.gltf-a0a19de139627a75a985d223c19f1a1d.scn"]
+source_file="res://objects/pristoni+derevo.gltf"
+dest_files=["res://.godot/imported/pristoni+derevo.gltf-3376f27e60078dd821a7f3572e8c27b4.scn"]
 
 [params]
 

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bexl0366iwqb4"
-path="res://.godot/imported/pristoni+derevo.gltf-dfc9e341eda6e37a105da9c344523fa8.scn"
+uid="uid://bec8nmv2j8rui"
+path="res://.godot/imported/sunduk.gltf-f3c5bed2cc7247bf7098557ad0382d63.scn"
 
 [deps]
 
-source_file="res://pristoni+derevo.gltf"
-dest_files=["res://.godot/imported/pristoni+derevo.gltf-dfc9e341eda6e37a105da9c344523fa8.scn"]
+source_file="res://objects/sunduk.gltf"
+dest_files=["res://.godot/imported/sunduk.gltf-f3c5bed2cc7247bf7098557ad0382d63.scn"]
 
 [params]
 

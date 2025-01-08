@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Horror_my geme"
-run/main_scene="res://map.tscn"
+run/main_scene="res://3d_maps/map.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[editor]
+
+movie_writer/movie_file="C:/godot-horror-2025/records/film.avi"
+movie_writer/fps=30
 
 [input]
 
