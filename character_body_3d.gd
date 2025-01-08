@@ -16,7 +16,8 @@ func _ready():
 	pass
 
 # переменные накопления движения курсора 
-var rot = -0.02
+#var rot = -0.02
+var rot = -0.002
 var rot_x = 0 
 var rot_y = 0
 
@@ -25,18 +26,21 @@ func _input(event):
 	if Input.is_action_just_pressed("ui_cancel") and is_on_floor():
 		get_tree().quit()
 	# ебучий выход конец
-	print($Camera3D.rotation.x, " ", rot_x)
-	if $Camera3D.rotation.x > 1:	
-		$Camera3D.rotation.x = 1
-	elif $Camera3D.rotation.x < -1:
-		$Camera3D.rotation.x = -1
-	else:
-		if event is InputEventMouseMotion:
-			#print(event.relative)
-			rot_x += event.relative.x * rot
+	#print($Camera3D.rotation.x, " ", rot_x)
+	#if $Camera3D.rotation.x > 1:	
+		#$Camera3D.rotation.x = 1
+	#elif $Camera3D.rotation.x < -1:
+		#$Camera3D.rotation.x = -1
+	#else:
+	if event is InputEventMouseMotion:
+		#print(event.relative)
+		print(rot_y + event.relative.y * rot)
+		if (rot_y + event.relative.y * rot) + 0.2 < 1 and (rot_y + event.relative.y * rot) - 0.2> -1:
 			rot_y += event.relative.y * rot
-			transform.basis = Basis(Vector3(0,1,0), rot_x)
-			$Camera3D.transform.basis = Basis(Vector3(1,0,0), rot_y)
+			
+		rot_x += event.relative.x * rot	
+		transform.basis = Basis(Vector3(0,1,0), rot_x)
+		$Camera3D.transform.basis = Basis(Vector3(1,0,0), rot_y)
 	
 	if event is InputEventMouse:
 		if event.is_pressed():
