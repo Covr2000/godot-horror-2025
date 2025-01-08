@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 var SPEED = 50.0
-const JUMP_VELOCITY = 50.5
+const JUMP_VELOCITY = 20.5
 
 func _ready():
 	# что бы хвостик(кончик не отображался в квантах в окне игры
