@@ -34,7 +34,7 @@ func _input(event):
 	#else:
 	if event is InputEventMouseMotion:
 		#print(event.relative)
-		print(rot_y + event.relative.y * rot)
+		#print(rot_y + event.relative.y * rot)
 		if (rot_y + event.relative.y * rot) + 0.2 < 1 and (rot_y + event.relative.y * rot) - 0.2> -1:
 			rot_y += event.relative.y * rot
 			
@@ -47,7 +47,7 @@ func _input(event):
 			action()
 	
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	# что бы хуирло(игрок) не падал и тыпехлся на 0 0 0 старт
 	if position.y < -3.0:
 		position.y = 0
