@@ -1,10 +1,17 @@
-[gd_scene load_steps=26 format=3 uid="uid://cowie772hu246"]
+[gd_scene load_steps=38 format=3 uid="uid://cowie772hu246"]
 
 [ext_resource type="Script" path="res://character_body_3d.gd" id="1_amkfx"]
 [ext_resource type="Texture2D" uid="uid://cljbkv5b7vta6" path="res://308263.png" id="2_c73pi"]
+[ext_resource type="Script" path="res://cast.gd" id="2_qa1fo"]
 [ext_resource type="Texture2D" uid="uid://80s6qfuvnf53" path="res://birch_planks_s.png" id="3_smy2v"]
 [ext_resource type="Texture2D" uid="uid://bu80ajes2fy15" path="res://birch_planks.png" id="3_t2h3x"]
 [ext_resource type="Texture2D" uid="uid://dldu7h22vxau2" path="res://birch_planks_n.png" id="4_g4qsm"]
+[ext_resource type="PackedScene" uid="uid://cbju74wxn7wvx" path="res://house.tscn" id="7_6vi8a"]
+[ext_resource type="Script" path="res://rdoor.gd" id="7_dw84t"]
+[ext_resource type="Script" path="res://door.gd" id="7_js3pj"]
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_nxivw"]
+length = 2.21052
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4lryq"]
 albedo_color = Color(1, 0, 0, 1)
@@ -69,10 +76,72 @@ uv1_scale = Vector3(10, 10, 10)
 distance_fade_mode = 1
 distance_fade_max_distance = 0.0
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_agopp"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
 [sub_resource type="BoxMesh" id="BoxMesh_1jjxk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0sfum"]
 albedo_color = Color(1, 0.207843, 0.0901961, 1)
+
+[sub_resource type="Animation" id="Animation_2hkfe"]
+resource_name = "right_door_anim"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.85038, 0), Vector3(0, 0.174533, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qboiy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.85038, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oqalg"]
+_data = {
+"RESET": SubResource("Animation_qboiy"),
+"right_door_anim": SubResource("Animation_2hkfe")
+}
+
+[sub_resource type="Animation" id="Animation_nf2ge"]
+resource_name = "left_door_anim"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.85038, 0), Vector3(0, 3.05433, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_73ogx"]
+_data = {
+"left_door_anim": SubResource("Animation_nf2ge")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e8ppu"]
+size = Vector3(0.980957, 0.960144, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_jtl0n"]
 
@@ -95,7 +164,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.55442, 0.943911, -1.13964)
 script = ExtResource("1_amkfx")
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.998006, 0.0631211, 0, -0.0631211, 0.998006, 0.368421, 2.93906, 0.000967026)
+transform = Transform3D(1, 0, 0, 0, 0.968148, 0.25038, 0, -0.25038, 0.968148, 0.368421, 2.93906, 0.000967026)
+
+[node name="cast" type="Area3D" parent="CharacterBody3D/Camera3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, -5.51822e-09, 0.998006, 0.0631211, 8.72484e-08, 0.0631211, -0.998006, -0.0757982, 0.10692, -1.14196)
+script = ExtResource("2_qa1fo")
+
+[node name="shape" type="CollisionShape3D" parent="CharacterBody3D/Camera3D/cast"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19209e-07, 0, -0.741388)
+shape = SubResource("SeparationRayShape3D_nxivw")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38913, 2.16172, 0)
@@ -159,14 +236,49 @@ transform = Transform3D(145.968, 0, 34.5432, 0, 150, 0, -34.5432, 0, 145.968, 14
 mesh = SubResource("BoxMesh_e2r5v")
 surface_material_override/0 = SubResource("ORMMaterial3D_a6nos")
 
-[node name="door" type="MeshInstance3D" parent="map"]
-transform = Transform3D(-5.23881, 0, 1.63588, 0, 30.8684, 0, -18.2471, 0, -0.469668, 73.4858, 14.9848, 24.1247)
+[node name="RightPivotDoor" type="Node3D" parent="map"]
+transform = Transform3D(-5.23881, 0, 1.63588, 0, 30.8684, 0, -18.2471, 0, -0.469667, 80.7462, 0.723592, 52.1789)
+
+[node name="door2" type="StaticBody3D" parent="map/RightPivotDoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.483614, 0.477576, 0.213028)
+script = ExtResource("7_dw84t")
+
+[node name="shape" type="CollisionShape3D" parent="map/RightPivotDoor/door2"]
+shape = SubResource("ConvexPolygonShape3D_agopp")
+
+[node name="door_right" type="MeshInstance3D" parent="map/RightPivotDoor/door2/shape"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.96046e-08, 0)
 mesh = SubResource("BoxMesh_1jjxk")
+skeleton = NodePath("../../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_0sfum")
 
-[node name="door2" type="MeshInstance3D" parent="map"]
-transform = Transform3D(-5.23881, 0, 1.63588, 0, 30.8684, 0, -18.2471, 0, -0.469668, 78.5611, 15.4656, 43.2543)
+[node name="anim" type="AnimationPlayer" parent="map/RightPivotDoor/door2"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_oqalg")
+}
+
+[node name="LeftPivotDoor" type="Node3D" parent="map"]
+transform = Transform3D(-5.23881, 0, 1.63588, 0, 30.8684, 0, -18.2471, 0, -0.469667, 70.8796, 0.93023, 14.8567)
+
+[node name="door" type="StaticBody3D" parent="map/LeftPivotDoor"]
+script = ExtResource("7_js3pj")
+
+[node name="anim" type="AnimationPlayer" parent="map/LeftPivotDoor/door"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_73ogx")
+}
+
+[node name="shape" type="CollisionShape3D" parent="map/LeftPivotDoor/door"]
+transform = Transform3D(1, 0, -1.86265e-09, 0, 1, 0, 7.15256e-07, 0, 1, -0.499843, 0.471541, -0.0482712)
+shape = SubResource("BoxShape3D_e8ppu")
+
+[node name="mesh" type="MeshInstance3D" parent="map/LeftPivotDoor/door/shape"]
+transform = Transform3D(1, 0, 1.86265e-09, 0, 1, 0, -4.76837e-07, 0, 1, -0.00728011, -0.0162349, 0.0173759)
+rotation_order = 0
 mesh = SubResource("BoxMesh_1jjxk")
+skeleton = NodePath("../../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_0sfum")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="map"]
@@ -197,3 +309,9 @@ light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
 spot_range = 48.1731
 spot_angle = 53.7023
+
+[node name="house" parent="." instance=ExtResource("7_6vi8a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.747, 25.238)
+
+[connection signal="body_entered" from="CharacterBody3D/Camera3D/cast" to="CharacterBody3D/Camera3D/cast" method="_on_body_entered"]
+[connection signal="body_exited" from="CharacterBody3D/Camera3D/cast" to="CharacterBody3D/Camera3D/cast" method="_on_body_exited"]

@@ -3,6 +3,13 @@ extends CharacterBody3D
 var SPEED = 50.0
 const JUMP_VELOCITY = 20.5
 
+var action_object = null
+func action():
+	#print("action do:", action_object)
+	if action_object:
+		if action_object.name == "door" or action_object.name == "door2":
+			action_object.open()
+
 func _ready():
 	# что бы хвостик(кончик не отображался в квантах в окне игры
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -18,14 +25,22 @@ func _input(event):
 	if Input.is_action_just_pressed("ui_cancel") and is_on_floor():
 		get_tree().quit()
 	# ебучий выход конец
-		
-	if event is InputEventMouseMotion:
-		#print(event.relative)
-		rot_x += event.relative.x * rot
-		rot_y += event.relative.y * rot
-		transform.basis = Basis(Vector3(0,1,0), rot_x)
-		$Camera3D.transform.basis = Basis(Vector3(1,0,0), rot_y)
-	pass
+	print($Camera3D.rotation.x, " ", rot_x)
+	if $Camera3D.rotation.x > 1:	
+		$Camera3D.rotation.x = 1
+	elif $Camera3D.rotation.x < -1:
+		$Camera3D.rotation.x = -1
+	else:
+		if event is InputEventMouseMotion:
+			#print(event.relative)
+			rot_x += event.relative.x * rot
+			rot_y += event.relative.y * rot
+			transform.basis = Basis(Vector3(0,1,0), rot_x)
+			$Camera3D.transform.basis = Basis(Vector3(1,0,0), rot_y)
+	
+	if event is InputEventMouse:
+		if event.is_pressed():
+			action()
 	
 	
 func _physics_process(delta):
