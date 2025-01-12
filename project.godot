@@ -13,8 +13,7 @@ config_version=5
 config/name="Horror_my geme"
 run/main_scene="res://3d_maps/map.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-run/max_fps=30
-run/low_processor_mode=true
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [debug]
@@ -61,17 +60,3 @@ shift_run={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
-
-[physics]
-
-3d/run_on_separate_thread=true
-common/physics_ticks_per_second=30
-common/physics_interpolation=true
-
-[rendering]
-
-occlusion_culling/bvh_build_quality=1
-lights_and_shadows/directional_shadow/soft_shadow_filter_quality=1
-lights_and_shadows/positional_shadow/soft_shadow_filter_quality=1
-camera/depth_of_field/depth_of_field_bokeh_shape=0
-occlusion_culling/use_occlusion_culling=true
