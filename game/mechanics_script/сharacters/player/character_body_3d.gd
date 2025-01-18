@@ -1,7 +1,8 @@
 extends CharacterBody3D
 
-var SPEED = 50.0
-const JUMP_VELOCITY = 20.5
+var SPEED = 12.0
+var BOOST = 15.0
+const JUMP_VELOCITY = 15.0
 
 
 func _ready():
@@ -42,9 +43,10 @@ func _physics_process(delta):
 		velocity += get_gravity() / 10
 		
 	if Input.is_action_pressed("shift_run"):
-		SPEED = 100.0
+		if SPEED <= BOOST:
+			SPEED += 1
 	else:
-		SPEED = 50.0
+		SPEED = 5.0
 		
 		
 
