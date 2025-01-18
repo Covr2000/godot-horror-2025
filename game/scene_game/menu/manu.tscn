@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://r7ubs8piqnii"]
+
+[ext_resource type="Texture2D" uid="uid://bbk7vxjiekenx" path="res://materials/image/treugolnik_minimalizm_chernyj_108815_1680x1050.jpg" id="1_rolc1"]
+[ext_resource type="Script" path="res://scene_game/menu/button.gd" id="2_fh374"]
+[ext_resource type="Script" path="res://scene_game/menu/button_4.gd" id="3_yq7pt"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(573, 325)
+zoom = Vector2(1.1, 1.1)
+
+[node name="Аfon" type="Sprite2D" parent="."]
+position = Vector2(612, 343)
+texture = ExtResource("1_rolc1")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(0.359069, 0.359069, 0.359069, 1)
+offset_left = 108.0
+offset_top = 225.0
+offset_right = 426.0
+offset_bottom = 302.0
+theme_override_font_sizes/font_size = 50
+text = "Начать игру"
+flat = true
+script = ExtResource("2_fh374")
+
+[node name="Button2" type="Button" parent="."]
+modulate = Color(0.359069, 0.359069, 0.359069, 1)
+offset_left = 112.0
+offset_top = 314.0
+offset_right = 395.0
+offset_bottom = 391.0
+theme_override_font_sizes/font_size = 50
+text = "Настройки
+"
+flat = true
+
+[node name="Button3" type="Button" parent="."]
+modulate = Color(0.359069, 0.359069, 0.359069, 1)
+offset_left = 76.0
+offset_top = 393.0
+offset_right = 359.0
+offset_bottom = 470.0
+theme_override_font_sizes/font_size = 50
+text = "Авторы
+"
+flat = true
+
+[node name="Button4" type="Button" parent="."]
+modulate = Color(0.359069, 0.359069, 0.359069, 1)
+offset_left = 61.0
+offset_top = 467.0
+offset_right = 344.0
+offset_bottom = 544.0
+theme_override_font_sizes/font_size = 50
+text = "Выход
+"
+flat = true
+script = ExtResource("3_yq7pt")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="Button4" to="Button4" method="_on_pressed"]

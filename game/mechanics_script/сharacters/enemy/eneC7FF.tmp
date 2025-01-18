@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://brrhpyagk7s1e"]
+
+[ext_resource type="Script" path="res://mechanics_script/сharacters/enemy/character_body_3d.gd" id="1_fh7pq"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_261gf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r8krt"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("1_fh7pq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35495, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 5.0
+shadow_enabled = true
+omni_range = 9.9241
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+visible = false
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 1.305
+shadow_enabled = true
+spot_range = 254.497
+spot_angle = 27.0048
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16958, 0)
+mesh = SubResource("CapsuleMesh_261gf")
+skeleton = NodePath("")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1.87473, 0, 0, 0, 1, 0, 1.16958, 0)
+shape = SubResource("BoxShape3D_r8krt")
+metadata/_edit_group_ = true
