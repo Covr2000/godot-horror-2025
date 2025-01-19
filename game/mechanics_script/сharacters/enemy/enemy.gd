@@ -1,5 +1,5 @@
 extends CharacterBody3D
-var speed = 2
+var speed = 12
 var accel = 10
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 #@onready var music_pos = get_node("res://scene_game/level/target.gd").pos_target
