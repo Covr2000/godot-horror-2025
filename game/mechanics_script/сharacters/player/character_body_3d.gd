@@ -1,50 +1,51 @@
 extends CharacterBody3D
 
-var SPEED = 0.0
-var MIN_SPEED = 5.0
-var MAX_SPEED = 15.0
-var BOOST = 0.5
+# Инициализация переменных скорости
+var SPEED = 0.0 # Просто создание скорости типа floot
+var MIN_SPEED = 5.0 # Стартовая или начальная скорость 
+var MAX_SPEED = 15.0 # Максимальная скорость 
+var BOOST = 0.5 # Ускорение
 
-const JUMP_VELOCITY = 15.0
+const JUMP_VELOCITY = 15.0 # Высота прыжка
 
-
+# Функция при четение но наверное правильно будет сделать через _init, 
+	#по есть при создания объекта
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	# Блокировка мышки что бы ее не было вижно и не выходила за пределы экранна
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) 
 	pass
 
 
 
-#fov run
+# fov run, Угол обзора увеличиваеться при беге а это просто увелечение
 const FOV = 70 # потом брать из настроек
 const FOV_RUN_OPT = 0.5 # На сколько увеличивать при беге
 
-# sensivite
+
+# Мы берем отрезок от начала движения мышки вот и его накапливаем
+# sensivite, переменные как сохрание буфера накопления вращения
 var rot = -0.01
 var rot_x = 0 
 var rot_y = 0
 
+# Функция отлова ввода, аргумент события
 func _input(event):
 	#if Input.is_action_just_pressed("ui_cancel") and is_on_floor():
 		#get_tree().quit()
 
+	# Накапливаем отрезок по "У", "X" по движению, если есть движение мышкой
 	if event is InputEventMouseMotion:
-		if (rot_y + event.relative.y * rot) + 0.2 < 1 and (rot_y + event.relative.y * rot) - 0.2> -1:
+		if (rot_y + event.relative.y * rot) + 0.2 < 1 and (rot_y + event.relative.y * rot) - 0.2> -1: # Ограничение что бы персонаж не закручивал голову назад 
 			rot_y += event.relative.y * rot
-		
 		rot_x += event.relative.x * rot	
-		#print('rot_x sin: ', rot_x * sin(rot_x * 0.7))
-		#print('rot_y: ', rot_y)
+
 		
+		# Передаем значение камере и псевдо фонарику
 		transform.basis = Basis(Vector3(0,1,0), rot_x)
 		$Camera3D.transform.basis = Basis(Vector3(1,0,0), rot_y)
-		$SpotLight3D.transform.basis = Basis(Vector3(1,0,0), rot_y)
-		
-		#rot_x += event.relative.x * rot	
-		#transform.basis = Basis(Vector3(0,1,0), rot_x)
-		#$Camera3D.transform.basis = Basis(Vector3(1,0,0), rot_y)
-		#$SpotLight3D.transform.basis = Basis(Vector3(1,0,0), rot_y)
+		$SpotLight3D.transform.basis = Basis(Vector3(1,0,0), rot_y) # Псевдо фонарик
 	
-	
+
 var bt = 0.0
 	
 func _physics_process(delta):

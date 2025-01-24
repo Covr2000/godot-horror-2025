@@ -17,48 +17,52 @@ texture = ExtResource("1_rolc1")
 
 [node name="playButton" type="Button" parent="."]
 modulate = Color(0.359069, 0.359069, 0.359069, 1)
-offset_left = 108.0
-offset_top = 225.0
-offset_right = 426.0
-offset_bottom = 302.0
-theme_override_font_sizes/font_size = 50
+offset_left = 61.0
+offset_top = 376.0
+offset_right = 379.0
+offset_bottom = 453.0
+theme_override_font_sizes/font_size = 35
 text = "Начать игру"
 flat = true
+alignment = 0
 script = ExtResource("2_fh374")
 
 [node name="settingsButton" type="Button" parent="."]
 modulate = Color(0.359069, 0.359069, 0.359069, 1)
-offset_left = 112.0
-offset_top = 314.0
-offset_right = 395.0
-offset_bottom = 391.0
-theme_override_font_sizes/font_size = 50
+offset_left = 61.0
+offset_top = 472.0
+offset_right = 261.0
+offset_bottom = 515.0
+theme_override_font_sizes/font_size = 25
 text = "Настройки
 "
 flat = true
+alignment = 0
 
 [node name="licenseButton" type="Button" parent="."]
 modulate = Color(0.359069, 0.359069, 0.359069, 1)
-offset_left = 76.0
-offset_top = 393.0
-offset_right = 359.0
-offset_bottom = 470.0
-theme_override_font_sizes/font_size = 50
+offset_left = 61.0
+offset_top = 512.0
+offset_right = 208.0
+offset_bottom = 555.0
+theme_override_font_sizes/font_size = 25
 text = "Авторы
 "
 flat = true
+alignment = 0
 script = ExtResource("3_iyye6")
 
 [node name="exitButton" type="Button" parent="."]
 modulate = Color(0.359069, 0.359069, 0.359069, 1)
 offset_left = 61.0
-offset_top = 467.0
-offset_right = 344.0
-offset_bottom = 544.0
-theme_override_font_sizes/font_size = 50
+offset_top = 552.0
+offset_right = 184.0
+offset_bottom = 595.0
+theme_override_font_sizes/font_size = 25
 text = "Выход
 "
 flat = true
+alignment = 0
 script = ExtResource("3_yq7pt")
 
 [connection signal="pressed" from="playButton" to="playButton" method="_on_pressed"]
