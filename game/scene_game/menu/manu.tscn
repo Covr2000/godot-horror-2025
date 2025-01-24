@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://r7ubs8piqnii"]
+[gd_scene load_steps=5 format=3 uid="uid://r7ubs8piqnii"]
 
 [ext_resource type="Texture2D" uid="uid://bbk7vxjiekenx" path="res://materials/image/treugolnik_minimalizm_chernyj_108815_1680x1050.jpg" id="1_rolc1"]
 [ext_resource type="Script" path="res://scene_game/menu/button.gd" id="2_fh374"]
+[ext_resource type="Script" path="res://scene_game/menu/license_button.gd" id="3_iyye6"]
 [ext_resource type="Script" path="res://scene_game/menu/button_4.gd" id="3_yq7pt"]
 
 [node name="Node2D" type="Node2D"]
@@ -14,7 +15,7 @@ zoom = Vector2(1.1, 1.1)
 position = Vector2(612, 343)
 texture = ExtResource("1_rolc1")
 
-[node name="Button" type="Button" parent="."]
+[node name="playButton" type="Button" parent="."]
 modulate = Color(0.359069, 0.359069, 0.359069, 1)
 offset_left = 108.0
 offset_top = 225.0
@@ -25,7 +26,7 @@ text = "Начать игру"
 flat = true
 script = ExtResource("2_fh374")
 
-[node name="Button2" type="Button" parent="."]
+[node name="settingsButton" type="Button" parent="."]
 modulate = Color(0.359069, 0.359069, 0.359069, 1)
 offset_left = 112.0
 offset_top = 314.0
@@ -36,7 +37,7 @@ text = "Настройки
 "
 flat = true
 
-[node name="Button3" type="Button" parent="."]
+[node name="licenseButton" type="Button" parent="."]
 modulate = Color(0.359069, 0.359069, 0.359069, 1)
 offset_left = 76.0
 offset_top = 393.0
@@ -46,8 +47,9 @@ theme_override_font_sizes/font_size = 50
 text = "Авторы
 "
 flat = true
+script = ExtResource("3_iyye6")
 
-[node name="Button4" type="Button" parent="."]
+[node name="exitButton" type="Button" parent="."]
 modulate = Color(0.359069, 0.359069, 0.359069, 1)
 offset_left = 61.0
 offset_top = 467.0
@@ -59,5 +61,6 @@ text = "Выход
 flat = true
 script = ExtResource("3_yq7pt")
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
-[connection signal="pressed" from="Button4" to="Button4" method="_on_pressed"]
+[connection signal="pressed" from="playButton" to="playButton" method="_on_pressed"]
+[connection signal="pressed" from="licenseButton" to="licenseButton" method="_on_pressed"]
+[connection signal="pressed" from="exitButton" to="exitButton" method="_on_pressed"]

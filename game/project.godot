@@ -13,16 +13,20 @@ config_version=5
 config/name="Спасибо что вместе разрабатываем"
 run/main_scene="res://scene_game/menu/manu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+run/max_fps=120
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://scene_game/level/target.gd"
 
+[debug]
+
+settings/stdout/print_fps=true
+
 [editor]
 
 movie_writer/movie_file="C:/Users/AMDPANLEXT/Documents/character-movement-plus-camera/video.avi"
-movie_writer/fps=120
 
 [input]
 
@@ -62,5 +66,4 @@ shift_run={
 
 [rendering]
 
-anti_aliasing/quality/msaa_3d=3
-anti_aliasing/quality/use_taa=true
+anti_aliasing/quality/msaa_3d=1

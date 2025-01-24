@@ -9,7 +9,6 @@ const JUMP_VELOCITY = 15.0
 
 
 func _ready():
-	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	pass
 
@@ -17,7 +16,7 @@ func _ready():
 
 #fov run
 const FOV = 70 # потом брать из настроек
-const FOV_RUN_OPT =0.5 # На сколько увеличивать при беге
+const FOV_RUN_OPT = 0.5 # На сколько увеличивать при беге
 
 # sensivite
 var rot = -0.01
@@ -25,9 +24,8 @@ var rot_x = 0
 var rot_y = 0
 
 func _input(event):
-
-	if Input.is_action_just_pressed("ui_cancel") and is_on_floor():
-		get_tree().quit()
+	#if Input.is_action_just_pressed("ui_cancel") and is_on_floor():
+		#get_tree().quit()
 
 	if event is InputEventMouseMotion:
 		if (rot_y + event.relative.y * rot) + 0.2 < 1 and (rot_y + event.relative.y * rot) - 0.2> -1:
@@ -100,3 +98,20 @@ func sinCamera(bt):
 	pos.y = 1.9 + (sin(bt * 1.0) * 0.05)
 	pos.x = cos(bt * 1.0 / 2) * 0.05
 	return pos
+
+
+# закрытие игры без багов и задержек с остановкой игры 
+	# как именно работает не совсем понял
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.is_action_pressed("ui_cancel"):
+		match Input.mouse_mode:
+			Input.MOUSE_MODE_CAPTURED:
+				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+				get_tree().paused = true
+				self.show()
+				get_tree().quit()  
+			Input.MOUSE_MODE_VISIBLE:
+				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+				get_tree().paused = false
+				self.hide()
+				get_tree().quit()  
