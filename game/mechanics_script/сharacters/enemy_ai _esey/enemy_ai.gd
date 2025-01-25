@@ -16,11 +16,17 @@ func get_random_direction_2d() -> Vector3:
 	var angle = randf_range(0, 2 * PI)  # Случайный угол в радианах
 	return Vector3(cos(angle), 0, sin(angle)).normalized()
 
+@onready var a :AnimationPlayer = $Spooky_Summer_Nightmare_Girl_Sketchfab/AnimationPlayer
+	
 func _physics_process(delta: float) -> void:
+	#Girl_Anim_Walk
+	if not a.is_playing():
+		a.play("Girl_Anim_Walk")
+	
 	look_at(global_position + direction, Vector3.UP)
 	velocity = -direction * speed
 	var collision = move_and_slide()
-	print(collision)
+	#print(collision)
 	if collision:
 		direction = get_random_direction_2d()
 		#движение в другую сторону

@@ -21,8 +21,8 @@ shape = SubResource("CapsuleShape3D_e6x6k")
 physics_interpolation_mode = 2
 auto_translate_mode = 2
 
-[node name="OmniLight3D" type="OmniLight3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35495, 0)
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.35495, 0)
 light_color = Color(1, 0, 0, 1)
 shadow_enabled = true
 omni_range = 9.9241
