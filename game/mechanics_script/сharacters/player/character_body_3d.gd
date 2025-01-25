@@ -61,7 +61,7 @@ func _physics_process(delta):
 		
 	if Input.is_action_pressed("shift_run"):
 		if SPEED <= MAX_SPEED:
-			SPEED += BOOST
+			SPEED += BOOST 
 	else:
 		SPEED = MIN_SPEED
 

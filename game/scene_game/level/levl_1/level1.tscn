@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dp2s278m7exlx"]
+[gd_scene load_steps=8 format=3 uid="uid://dp2s278m7exlx"]
 
 [ext_resource type="PackedScene" uid="uid://ckufsg68innlq" path="res://scene_game/level/levl_1/map2.tscn" id="1_3ebwg"]
 [ext_resource type="PackedScene" uid="uid://b5f04vuxlvf4l" path="res://mechanics_script/сharacters/player/player.tscn" id="2_ioxo7"]
-[ext_resource type="PackedScene" uid="uid://brrhpyagk7s1e" path="res://mechanics_script/сharacters/enemy/enemy.tscn" id="3_oys4r"]
+[ext_resource type="PackedScene" uid="uid://brrhpyagk7s1e" path="res://mechanics_script/сharacters/enemy_go_to_target/enemy.tscn" id="3_oys4r"]
+[ext_resource type="PackedScene" uid="uid://c80howba0phb2" path="res://mechanics_script/сharacters/enemy_ai _esey/enemy_ai _esey.tscn" id="4_wddag"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3lcpm"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -32,6 +33,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5847, 2.26875, -31.427)
 
 [node name="enemy" parent="." instance=ExtResource("3_oys4r")]
 transform = Transform3D(-1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, -10.3706, 2.2789, -36.4001)
+visible = false
 
 [node name="map2" parent="." instance=ExtResource("1_3ebwg")]
 transform = Transform3D(1.4124, 0, 0, 0, 4.60385, 0, 0, 0, 1.78355, -1.90531, 2.24769, 0)
+
+[node name="Node3D" parent="." instance=ExtResource("4_wddag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4312, 2.31736, -24.9072)
