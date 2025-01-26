@@ -25,16 +25,14 @@ func get_random_direction_2d() -> Vector3:
 	
 func _physics_process(_delta: float) -> void:
 	if stetat == true:
-		if not a.is_playing():
-			a.play("Girl_Anim_Following")
+		a.play("Girl_Anim_Following")
 		look_at(GlobalPlayer.GPlayer, Vector3.UP)
 		var direction1 = Vector3(0,0,-speed).rotated(Vector3.UP, rotation.y)
 		velocity.z = direction1.z
 		velocity.x = direction1.x
 		move_and_slide()
 	elif stetat == false:
-		if not a.is_playing():
-			a.play("Girl_Anim_Walk")
+		a.play("Girl_Anim_Walk")
 		look_at(global_position + direction, Vector3.UP)
 		velocity = direction * speed
 		var collision = move_and_slide()
