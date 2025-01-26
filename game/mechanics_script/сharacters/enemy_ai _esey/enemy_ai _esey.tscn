@@ -13,6 +13,11 @@ height = 4.22451
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_m1xqm")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35495, 0)
+light_color = Color(1, 0, 0, 1)
+omni_range = 9.9241
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.23631, 0)
 shape = SubResource("CapsuleShape3D_e6x6k")
@@ -20,9 +25,3 @@ shape = SubResource("CapsuleShape3D_e6x6k")
 [node name="Spooky_Summer_Nightmare_Girl_Sketchfab" parent="CharacterBody3D" instance=ExtResource("1_e8b5s")]
 physics_interpolation_mode = 2
 auto_translate_mode = 2
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.35495, 0)
-light_color = Color(1, 0, 0, 1)
-shadow_enabled = true
-omni_range = 9.9241

@@ -38,7 +38,7 @@ func _input(event):
 		if (rot_y + event.relative.y * rot) + 0.2 < 1 and (rot_y + event.relative.y * rot) - 0.2> -1: # Ограничение что бы персонаж не закручивал голову назад 
 			rot_y += event.relative.y * rot
 		rot_x += event.relative.x * rot	
-
+		
 		
 		# Передаем значение камере и псевдо фонарику
 		transform.basis = Basis(Vector3(0,1,0), rot_x)
@@ -49,7 +49,16 @@ func _input(event):
 var bt = 0.0
 	
 func _physics_process(delta):
-
+	if Input.is_action_just_pressed("down_1") and is_on_floor():
+		GlobalPlayer.GPlayer = Vector3(-14.585,2.269,-31.427)
+		print("transform.origin: ", position)
+		
+	if Input.is_action_just_pressed("down_2") and is_on_floor():
+		GlobalPlayer.GPlayer = Vector3(0,0,0)
+		print(GlobalPlayer.GPlayer)
+	
+	
+	#print(transform.origin)
 	if position.y < -100.0:
 		position.y = 0
 		position.x = 0
@@ -66,9 +75,9 @@ func _physics_process(delta):
 		SPEED = MIN_SPEED
 
 
-
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		
 
 
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")

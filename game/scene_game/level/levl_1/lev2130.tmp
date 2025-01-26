@@ -30,7 +30,7 @@ shadow_enabled = true
 environment = SubResource("Environment_t3eaf")
 
 [node name="palyer" parent="." instance=ExtResource("2_ioxo7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8185, 2.26875, -35.3139)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5847, 2.26875, -31.427)
 
 [node name="enemy" parent="." instance=ExtResource("3_oys4r")]
 transform = Transform3D(-1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, -10.3706, 2.2789, -36.4001)
