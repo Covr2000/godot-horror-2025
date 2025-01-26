@@ -13,13 +13,17 @@ config_version=5
 config/name="Спасибо что вместе разрабатываем"
 run/main_scene="res://scene_game/menu/main/manu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-run/max_fps=120
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://scene_game/level/target.gd"
 GlobalPlayer="*res://GlobalScript/global_player.gd"
+
+[debug]
+
+settings/stdout/print_fps=true
 
 [editor]
 
@@ -74,3 +78,4 @@ down_2={
 
 renderer/rendering_method="mobile"
 anti_aliasing/screen_space_roughness_limiter/enabled=false
+anti_aliasing/quality/msaa_3d=3

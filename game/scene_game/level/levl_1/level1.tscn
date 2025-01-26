@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dp2s278m7exlx"]
+[gd_scene load_steps=11 format=3 uid="uid://dp2s278m7exlx"]
 
 [ext_resource type="PackedScene" uid="uid://ckufsg68innlq" path="res://scene_game/level/levl_1/map2.tscn" id="1_3ebwg"]
 [ext_resource type="Script" path="res://scene_game/level/levl_1/global_level_1.gd" id="1_hkrnc"]
 [ext_resource type="PackedScene" uid="uid://b5f04vuxlvf4l" path="res://mechanics_script/сharacters/player/player.tscn" id="2_ioxo7"]
 [ext_resource type="PackedScene" uid="uid://c80howba0phb2" path="res://mechanics_script/сharacters/enemy_ai _esey/enemy_ai _esey.tscn" id="4_wddag"]
+[ext_resource type="Script" path="res://mechanics_script/lamp/spawn_lamps.gd" id="6_hh3ju"]
+[ext_resource type="PackedScene" uid="uid://mk4j1c711nfk" path="res://mechanics_script/lamp/lamp.tscn" id="6_lhoii"]
+[ext_resource type="PackedScene" uid="uid://t1lc0d1go08c" path="res://mechanics_script/door/door.tscn" id="8_ud4u5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3lcpm"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -21,11 +24,6 @@ glow_enabled = true
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_hkrnc")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-visible = false
-shadow_enabled = true
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_t3eaf")
 
@@ -35,5 +33,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6607, 2.26875, 4.1815)
 [node name="map2" parent="." instance=ExtResource("1_3ebwg")]
 transform = Transform3D(1.4124, 0, 0, 0, 4.60385, 0, 0, 0, 1.78355, -1.90531, 2.24769, 0)
 
-[node name="Node3D" parent="." instance=ExtResource("4_wddag")]
+[node name="loli" parent="." instance=ExtResource("4_wddag")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2906, 2.31736, -24.7701)
+
+[node name="door" parent="." instance=ExtResource("8_ud4u5")]
+transform = Transform3D(4.29291, 0, 0, 0, 4.29291, 0, 0, 0, 4.29291, -13.1331, 5.00603, -12.0546)
+
+[node name="spawn_lamps" type="Node3D" parent="."]
+script = ExtResource("6_hh3ju")
+
+[node name="Object" parent="spawn_lamps" instance=ExtResource("6_lhoii")]
+transform = Transform3D(0.376127, 0, 0, 0, 0.376127, 0, 0, 0, 0.376127, -9.60312, 3.53928, -1.96054)
+
+[node name="Object2" parent="spawn_lamps" instance=ExtResource("6_lhoii")]
+transform = Transform3D(0.376127, 0, 0, 0, 0.376127, 0, 0, 0, 0.376127, -14.7644, 3.78939, -3.13435)
+
+[node name="lblLamps" type="Label" parent="."]
+offset_left = 967.0
+offset_top = 218.0
+offset_right = 1120.0
+offset_bottom = 267.0
+text = "ZAбрано лYмпачек
+0 / 0"
+horizontal_alignment = 2
