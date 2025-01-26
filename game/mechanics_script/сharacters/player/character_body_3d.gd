@@ -8,6 +8,8 @@ var BOOST = 0.5 # Ускорение
 
 const JUMP_VELOCITY = 15.0 # Высота прыжка
 
+var btt = 0.0
+
 # Функция при четение но наверное правильно будет сделать через _init, 
 	#по есть при создания объекта
 func _ready():
@@ -45,17 +47,14 @@ func _input(event):
 		$Camera3D.transform.basis = Basis(Vector3(1,0,0), rot_y)
 		$SpotLight3D.transform.basis = Basis(Vector3(1,0,0), rot_y) # Псевдо фонарик
 	
-
-var bt = 0.0
-	
 func _physics_process(delta):
-	if Input.is_action_just_pressed("down_1") and is_on_floor():
-		GlobalPlayer.GPlayer = Vector3(-14.585,2.269,-31.427)
-		print("transform.origin: ", position)
-		
-	if Input.is_action_just_pressed("down_2") and is_on_floor():
-		GlobalPlayer.GPlayer = Vector3(0,0,0)
-		print(GlobalPlayer.GPlayer)
+	GlobalPlayer.GPlayer = Vector3(transform.origin.x, 0, transform.origin.z )+ GlobalPlayer.GPlayerPosition_1
+	#if Input.is_action_just_pressed("down_1") and is_on_floor():
+		#print("transform.origin: ", transform.origin)
+		#
+	#if Input.is_action_just_pressed("down_2") and is_on_floor():
+		#GlobalPlayer.GPlayer = Vector3(0,0,0)
+		#print(GlobalPlayer.GPlayer)
 	
 	
 	#print(transform.origin)
@@ -93,8 +92,8 @@ func _physics_process(delta):
 	velocity.x = velocity.x 
 	velocity.y = velocity.y
 	
-	bt = bt + delta * velocity.length() * float(is_on_floor())
-	$Camera3D.transform.origin = sinCamera(bt)
+	btt = btt + delta * velocity.length() * float(is_on_floor())
+	$Camera3D.transform.origin = sinCamera(btt)
 	
 	#fov_run_change
 	var vel_cl = clamp(velocity.length(), 0.5, SPEED)
@@ -102,7 +101,7 @@ func _physics_process(delta):
 	$Camera3D.fov = lerp($Camera3D.fov, target_fov, delta * 1.0)
 	move_and_slide()
 
-func sinCamera(bt):
+func sinCamera(bt = 0.0):
 	var pos = Vector3.ZERO
 	# 1.9 высота над камерой 
 	pos.y = 1.9 + (sin(bt * 1.0) * 0.05)

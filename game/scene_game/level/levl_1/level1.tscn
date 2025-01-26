@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://dp2s278m7exlx"]
 
 [ext_resource type="PackedScene" uid="uid://ckufsg68innlq" path="res://scene_game/level/levl_1/map2.tscn" id="1_3ebwg"]
+[ext_resource type="Script" path="res://scene_game/level/levl_1/global_level_1.gd" id="1_hkrnc"]
 [ext_resource type="PackedScene" uid="uid://b5f04vuxlvf4l" path="res://mechanics_script/сharacters/player/player.tscn" id="2_ioxo7"]
 [ext_resource type="PackedScene" uid="uid://brrhpyagk7s1e" path="res://mechanics_script/сharacters/enemy_go_to_target/enemy.tscn" id="3_oys4r"]
 [ext_resource type="PackedScene" uid="uid://c80howba0phb2" path="res://mechanics_script/сharacters/enemy_ai _esey/enemy_ai _esey.tscn" id="4_wddag"]
-[ext_resource type="PackedScene" uid="uid://d2rh64iefaaj3" path="res://mechanics_script/сharacters/enemy_attack _state_Arial3D/enemy_attack_state.tscn" id="5_w6wnk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3lcpm"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -20,6 +20,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_hkrnc")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -30,7 +31,7 @@ shadow_enabled = true
 environment = SubResource("Environment_t3eaf")
 
 [node name="palyer" parent="." instance=ExtResource("2_ioxo7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8185, 2.26875, -35.3139)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6607, 2.26875, 4.1815)
 
 [node name="enemy" parent="." instance=ExtResource("3_oys4r")]
 transform = Transform3D(-1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, -10.3706, 2.2789, -36.4001)
@@ -40,7 +41,4 @@ visible = false
 transform = Transform3D(1.4124, 0, 0, 0, 4.60385, 0, 0, 0, 1.78355, -1.90531, 2.24769, 0)
 
 [node name="Node3D" parent="." instance=ExtResource("4_wddag")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4312, 2.31736, -24.9072)
-
-[node name="Node3D2" parent="." instance=ExtResource("5_w6wnk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6451, 2.31736, -29.8055)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2906, 2.31736, -24.7701)

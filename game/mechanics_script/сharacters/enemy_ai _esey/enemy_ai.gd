@@ -8,8 +8,13 @@ extends CharacterBody3D
 # Скорость движения вперед
 @export var speed: float = 5.0
 
-var direction = Vector3.BACK.normalized()
+var direction = Vector3.FORWARD.normalized()
 var tracking = false
+
+
+
+var stetat = false
+
 
 # Генерация случайного направления
 func get_random_direction_2d() -> Vector3:
@@ -18,23 +23,38 @@ func get_random_direction_2d() -> Vector3:
 
 @onready var a :AnimationPlayer = $Spooky_Summer_Nightmare_Girl_Sketchfab/AnimationPlayer
 	
-func _physics_process(delta: float) -> void:
-	#Girl_Anim_Walk
-	if not a.is_playing():
-		a.play("Girl_Anim_Walk")
+func _physics_process(_delta: float) -> void:
+	if stetat == true:
+		if not a.is_playing():
+			a.play("Girl_Anim_Following")
+		look_at(GlobalPlayer.GPlayer, Vector3.UP)
+		var direction1 = Vector3(0,0,-speed).rotated(Vector3.UP, rotation.y)
+		velocity.z = direction1.z
+		velocity.x = direction1.x
+		move_and_slide()
+	elif stetat == false:
+		if not a.is_playing():
+			a.play("Girl_Anim_Walk")
+		look_at(global_position + direction, Vector3.UP)
+		velocity = direction * speed
+		var collision = move_and_slide()
+		#print(collision)
+		if collision:
+			direction = get_random_direction_2d()
+			#движение в другую сторону
 	
-	look_at(global_position + direction, Vector3.UP)
-	velocity = -direction * speed
-	var collision = move_and_slide()
-	#print(collision)
-	if collision:
-		direction = get_random_direction_2d()
-		#движение в другую сторону
-		#tracking = !tracking
-		#
-	#if tracking:
-		#direction = Vector3.FORWARD.normalized()
-	#else:
-		#direction = Vector3.BACK.normalized()
+	
+func _on_area_3d_body_entered(body):
+	if body is CharacterBody3D:
+		print(body)
+		stetat = true
 
-	
+	#print(body)
+	#look_at(GlobalPlayer.GPlayer, Vector3.UP)
+	pass # Replace with function body.
+
+
+func _on_area_3d_body_exited(body):
+	if body is CharacterBody3D:
+		stetat = false
+	pass # Replace with function body.
