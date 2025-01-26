@@ -1,3 +1,9 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+*.import
+*.png.import
+*.exe
+*.pck
+/scene_game/level/levl_3/source/*.png.import
