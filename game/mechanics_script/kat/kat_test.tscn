@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpbinhk8ai0b0"]
+
+[sub_resource type="Animation" id="Animation_eyj1b"]
+resource_name = "kat"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2.5, 3.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.253317, 0, 0), Vector3(0, 0, 0), Vector3(0, 0.758625, 0), Vector3(0, -0.699476, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5li8o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.253317, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fcgds"]
+_data = {
+"RESET": SubResource("Animation_5li8o"),
+"kat": SubResource("Animation_eyj1b")
+}
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.968086, 0.250617, 0, -0.250617, 0.968086, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
+libraries = {
+"": SubResource("AnimationLibrary_fcgds")
+}
