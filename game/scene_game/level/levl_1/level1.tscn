@@ -68,7 +68,6 @@ environment = SubResource("Environment_t3eaf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0746, 4.2305, 3.78652)
 
 [node name="Camera3D" type="Camera3D" parent="katTest"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="katTest/Camera3D"]
 libraries = {

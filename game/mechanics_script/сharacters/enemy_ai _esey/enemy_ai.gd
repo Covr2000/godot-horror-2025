@@ -44,7 +44,6 @@ func _physics_process(_delta: float) -> void:
 	
 func _on_area_3d_body_entered(body):
 	if body is CharacterBody3D:
-		print(body)
 		stetat = true
 
 	#print(body)

@@ -14,7 +14,7 @@ func _ready():
 	
 func _process(_delta):
 	if local_anim_on == false:
-		print(a.is_playing())
+		#print(a.is_playing())
 		if a.is_playing() != true:
 			$katTest.queue_free()
 			local_anim_on = true

@@ -21,10 +21,6 @@ config/icon="res://icon.svg"
 Global="*res://scene_game/level/target.gd"
 GlobalPlayer="*res://GlobalScript/global_player.gd"
 
-[debug]
-
-settings/stdout/print_fps=true
-
 [editor]
 
 movie_writer/movie_file="C:/Users/AMDPANLEXT/Documents/character-movement-plus-camera/video.avi"
@@ -78,4 +74,3 @@ down_2={
 
 renderer/rendering_method="mobile"
 anti_aliasing/screen_space_roughness_limiter/enabled=false
-anti_aliasing/quality/msaa_3d=3

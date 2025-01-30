@@ -33,7 +33,7 @@ func _process(_delta):
 func _on_area_3d_body_entered(body):
 	if body is CharacterBody3D:
 		stetat = true
-		print(body)
+		#print(body)
 
 	#print(body)
 	#look_at(GlobalPlayer.GPlayer, Vector3.UP)

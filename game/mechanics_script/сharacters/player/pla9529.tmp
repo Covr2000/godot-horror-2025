@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5f04vuxlvf4l"]
+[gd_scene load_steps=5 format=3 uid="uid://b5f04vuxlvf4l"]
 
+[ext_resource type="Script" path="res://mechanics_script/сharacters/player/spot_light_3d.gd" id="1_c7odk"]
 [ext_resource type="Script" path="res://mechanics_script/сharacters/player/character_body_3d.gd" id="1_m1jui"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_60xqo"]
@@ -9,10 +10,14 @@
 [node name="player" type="Node3D"]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.06565, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 light_energy = 16.0
-spot_range = 53.6418
-spot_angle = 22.1173
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 1.305
+shadow_enabled = true
+spot_range = 254.497
+spot_angle = 27.0048
+script = ExtResource("1_c7odk")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 script = ExtResource("1_m1jui")

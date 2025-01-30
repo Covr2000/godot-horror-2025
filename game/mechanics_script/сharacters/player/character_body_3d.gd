@@ -30,6 +30,10 @@ var rot = -0.01
 var rot_x = 0 
 var rot_y = 0
 
+# Переменны для задержки фонарика для более плавного и реалистичного движения
+var follow_speed = 0.051
+
+
 # Функция отлова ввода, аргумент события
 func _input(event):
 	#if Input.is_action_just_pressed("ui_cancel") and is_on_floor():
@@ -40,22 +44,32 @@ func _input(event):
 		if (rot_y + event.relative.y * rot) + 0.2 < 1 and (rot_y + event.relative.y * rot) - 0.2> -1: # Ограничение что бы персонаж не закручивал голову назад 
 			rot_y += event.relative.y * rot
 		rot_x += event.relative.x * rot	
-		
-		
 		# Передаем значение камере и псевдо фонарику
+		$Camera3D.transform.basis = Basis(Vector3(0,1,0), rot_x)
 		transform.basis = Basis(Vector3(0,1,0), rot_x)
+		
+
 		$Camera3D.transform.basis = Basis(Vector3(1,0,0), rot_y)
-		$SpotLight3D.transform.basis = Basis(Vector3(1,0,0), rot_y) # Псевдо фонарик
+		
+		#$SpotLight3D.transform.basis = Basis(Vector3(1,0,0), rot_y) # Псевдо фонарик
 	
 func _physics_process(delta):
-	GlobalPlayer.GPlayer = Vector3(transform.origin.x, 0, transform.origin.z )+ GlobalPlayer.GPlayerPosition_1
-	#if Input.is_action_just_pressed("down_1") and is_on_floor():
-		#print("transform.origin: ", transform.origin)
-		#
-	#if Input.is_action_just_pressed("down_2") and is_on_floor():
-		#GlobalPlayer.GPlayer = Vector3(0,0,0)
-		#print(GlobalPlayer.GPlayer)
+	var varSpotLight3D = $"../SpotLight3D"
+	#print(floor(rot_x))
+	#print(rot_y)
+	var basis_y = Basis(Vector3(1, 0, 0), rot_y)
+	var basis_x = Basis(Vector3(0, 1, 0), rot_x)
 	
+	# Сложение базисов путем их перемножения
+	var combined_basis = basis_x * basis_y
+	
+
+	varSpotLight3D.transform.basis = lerp(varSpotLight3D.transform.basis, combined_basis, follow_speed)	
+	varSpotLight3D.transform.origin.x =  transform.origin.x
+	varSpotLight3D.transform.origin.z =  transform.origin.z
+	varSpotLight3D.transform.origin.y = lerp(varSpotLight3D.transform.origin.y, transform.origin.y + 1.9, follow_speed) 
+	
+	GlobalPlayer.GPlayer = Vector3(transform.origin.x, 0, transform.origin.z ) + GlobalPlayer.GPlayerPosition_1
 	
 	#print(transform.origin)
 	if position.y < -100.0:
@@ -69,7 +83,7 @@ func _physics_process(delta):
 		
 	if Input.is_action_pressed("shift_run"):
 		if SPEED <= MAX_SPEED:
-			SPEED += BOOST 
+			SPEED += BOOST
 	else:
 		SPEED = MIN_SPEED
 
@@ -82,8 +96,8 @@ func _physics_process(delta):
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = lerp(direction.x * SPEED, velocity.x, 0.51)
+		velocity.z = lerp(direction.z * SPEED, velocity.z, 0.51)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
@@ -104,8 +118,8 @@ func _physics_process(delta):
 func sinCamera(bt = 0.0):
 	var pos = Vector3.ZERO
 	# 1.9 высота над камерой 
-	pos.y = 1.9 + (sin(bt * 1.0) * 0.05)
-	pos.x = cos(bt * 1.0 / 2) * 0.05
+	pos.y = 1.9 + (sin(bt * 1.0) * 0.2)
+	pos.x = cos(bt * 1.0 / 2) * 0.2
 	return pos
 
 
