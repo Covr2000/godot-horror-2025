@@ -3,6 +3,7 @@ extends Marker3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GlobalPlayer.vector_arrayMarket.append(transform.origin)  
 	pass # Replace with function body.
 
 

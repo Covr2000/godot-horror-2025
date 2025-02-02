@@ -1,5 +1,5 @@
 extends CharacterBody3D
-var speed = 12
+var speed = 12.1
 var accel = 10
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 #@onready var music_pos = get_node("res://scene_game/level/target.gd").pos_target
@@ -28,23 +28,15 @@ func get_random_vector(vectors: Array) -> Vector3:
 
 func _ready():
 	GlobalPlayer.vector_arrayMarket.append(Vector3(-11.458, 2.99, 20.778))  
-	GlobalPlayer.vector_arrayMarket.append(Vector3(34.748, 3.049,-2.599))  
+	#GlobalPlayer.vector_arrayMarket.append(Vector3(30.152, 2.46,-2.298))  
+	#GlobalPlayer.vector_arrayMarket.append(Vector3(130.152, 2.46,-2.298))  
 	
 	
-var RAND_POSITION_MARKET = Vector3(0, 0, 0)
-var POGRESHNOST = Vector3(0.5,10,0.5)
+var RAND_POSITION_MARKET = Vector3(0,0,0)
+var POGRESHNOST = Vector3(0.1,10,0.11)
 
 func _physics_process(delta):
 	
-
-	var ifing = velocity > (RAND_POSITION_MARKET - POGRESHNOST) and velocity < (RAND_POSITION_MARKET + POGRESHNOST)
-	if ifing:
-		print(ifing)
-	print("velocity ",velocity, " RAND_POSITION_MARKET ", RAND_POSITION_MARKET, "\n", "RAND_POSITION_MARKET - POGRESHNOST", RAND_POSITION_MARKET - POGRESHNOST, " and " , RAND_POSITION_MARKET + POGRESHNOST)
-	
-	if ifing:
-		RAND_POSITION_MARKET = get_random_vector(GlobalPlayer.vector_arrayMarket)
-		print(RAND_POSITION_MARKET)
 	
 	var direction = Vector3()
 	nav.target_position = RAND_POSITION_MARKET
@@ -52,4 +44,14 @@ func _physics_process(delta):
 	direction = direction.normalized()
 	velocity = velocity.lerp(direction * speed , accel * delta)
 	
+	var ifing = velocity == RAND_POSITION_MARKET 
+	
+	#print("velocity ",velocity, " RAND_POSITION_MARKET ", RAND_POSITION_MARKET, "\n", "RAND_POSITION_MARKET - POGRESHNOST", RAND_POSITION_MARKET - POGRESHNOST, " and " , RAND_POSITION_MARKET + POGRESHNOST)
+	print(transform.origin + Vector3(-13.651, 0,-18.148), RAND_POSITION_MARKET - POGRESHNOST, RAND_POSITION_MARKET + POGRESHNOST )
+	
+	var position_enemy = transform.origin + Vector3(-13.651, 0,-18.148)
+	if  position_enemy > RAND_POSITION_MARKET - POGRESHNOST and position_enemy < RAND_POSITION_MARKET + POGRESHNOST:
+		RAND_POSITION_MARKET = get_random_vector(GlobalPlayer.vector_arrayMarket)
+		print("true ", RAND_POSITION_MARKET)
+		
 	move_and_slide()
