@@ -12,7 +12,7 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.06565, 0)
 light_energy = 16.0
 spot_range = 53.6418
-spot_angle = 22.1173
+spot_angle = 50.3562
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 script = ExtResource("1_m1jui")
@@ -57,3 +57,15 @@ offset_bottom = 23.0
 text = "+"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="CharacterBody3D/Control"]
+offset_top = -3.0
+offset_right = 40.0
+offset_bottom = 3.0
+
+[node name="ColorRect" type="ColorRect" parent="CharacterBody3D/Control"]
+layout_mode = 0
+offset_top = -3.0
+offset_right = 9.0
+offset_bottom = 3.0
+color = Color(0.344076, 0.344076, 0.344076, 1)

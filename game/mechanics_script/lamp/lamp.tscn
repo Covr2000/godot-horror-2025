@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://mk4j1c711nfk"]
 
-[ext_resource type="ArrayMesh" uid="uid://bhyfym0c63fbw" path="res://mechanics_script/lamp/bulb.obj" id="1_dpu6m"]
+[ext_resource type="ArrayMesh" uid="uid://ctkkskt3nhrl6" path="res://mechanics_script/lamp/bulb.obj" id="1_dpu6m"]
 [ext_resource type="Script" path="res://mechanics_script/lamp/bulb.gd" id="2_1b4m5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_crqi3"]
