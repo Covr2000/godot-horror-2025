@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://c80howba0phb2"]
+
+[ext_resource type="PackedScene" uid="uid://clrwrcxa15v6t" path="res://materials/model/enemy/source/Spooky_Summer_Nightmare_Girl_Sketchfab.gltf" id="1_e8b5s"]
+[ext_resource type="Script" path="res://mechanics_script/сharacters/enemy_ai _esey/enemy_ai.gd" id="1_m1xqm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_04rxu"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_8yb3c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hssuo"]
+albedo_color = Color(1, 0.453365, 0.236021, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e6x6k"]
+radius = 0.794609
+height = 4.22451
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_m1xqm")
+
+[node name="Area3D" type="Area3D" parent="CharacterBody3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/Area3D"]
+transform = Transform3D(9.60135e-07, 0, 10.978, 0, 10.6441, 0, -7.32178, 0, 1.43959e-06, -7.20304, 0, 0)
+shape = SubResource("BoxShape3D_04rxu")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/Area3D"]
+transform = Transform3D(1.03308e-06, 10.5062, -2.38656e-07, 0, 2.58309e-07, -0.670552, -7.87804, 1.37772e-06, -5.15453e-14, -7.20304, 0, 0)
+mesh = SubResource("PrismMesh_8yb3c")
+surface_material_override/0 = SubResource("StandardMaterial3D_hssuo")
+metadata/_edit_group_ = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35495, 0)
+light_color = Color(1, 0, 0, 1)
+omni_range = 9.9241
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.23631, 0)
+shape = SubResource("CapsuleShape3D_e6x6k")
+
+[node name="Spooky_Summer_Nightmare_Girl_Sketchfab" parent="CharacterBody3D" instance=ExtResource("1_e8b5s")]
+physics_interpolation_mode = 2
+auto_translate_mode = 2
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[connection signal="body_entered" from="CharacterBody3D/Area3D" to="CharacterBody3D" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="CharacterBody3D/Area3D" to="CharacterBody3D" method="_on_area_3d_body_exited"]

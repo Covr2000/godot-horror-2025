@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://b5f04vuxlvf4l" path="res://mechanics_script/сharacters/player/player.tscn" id="2_ioxo7"]
 [ext_resource type="Script" path="res://mechanics_script/lamp/spawn_lamps.gd" id="6_hh3ju"]
 [ext_resource type="PackedScene" uid="uid://mk4j1c711nfk" path="res://mechanics_script/lamp/lamp.tscn" id="6_lhoii"]
-[ext_resource type="PackedScene" uid="uid://brrhpyagk7s1e" path="res://mechanics_script/сharacters/enemy_go_to_target/enemy.tscn" id="7_h4sdv"]
 [ext_resource type="Script" path="res://scene_game/level/levl_1/marker_3d.gd" id="8_oolky"]
 [ext_resource type="PackedScene" uid="uid://t1lc0d1go08c" path="res://mechanics_script/door/door.tscn" id="8_ud4u5"]
+[ext_resource type="PackedScene" uid="uid://c80howba0phb2" path="res://mechanics_script/сharacters/enemy_ai _esey/enemy_ai _esey.tscn" id="9_x08f2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3lcpm"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -104,14 +104,12 @@ text = "ZAбрано лYмпачек
 0 / 0"
 horizontal_alignment = 2
 
-[node name="Node3D" parent="." instance=ExtResource("7_h4sdv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6509, 2.31736, -18.1481)
-
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.152, 4, -2.298)
 script = ExtResource("8_oolky")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Marker3D"]
+visible = false
 mesh = SubResource("BoxMesh_kitqn")
 
 [node name="Marker3D2" type="Marker3D" parent="."]
@@ -119,6 +117,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.2763, 4, 11.6116)
 script = ExtResource("8_oolky")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Marker3D2"]
+visible = false
 mesh = SubResource("BoxMesh_kitqn")
 
 [node name="Marker3D3" type="Marker3D" parent="."]
@@ -126,4 +125,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.7533, 4, 34.8965)
 script = ExtResource("8_oolky")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Marker3D3"]
+visible = false
 mesh = SubResource("BoxMesh_kitqn")
+
+[node name="Marker3D4" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.7533, 4, 17.3939)
+script = ExtResource("8_oolky")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Marker3D4"]
+visible = false
+mesh = SubResource("BoxMesh_kitqn")
+
+[node name="enemy_ai" parent="." instance=ExtResource("9_x08f2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.37402, 0)
