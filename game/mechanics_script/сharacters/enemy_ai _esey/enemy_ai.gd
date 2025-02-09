@@ -134,3 +134,12 @@ func _on_area_3d_body_exited(body):
 func _on_ray_cast_3d_visibility_changed():
 	can_see_player()
 	pass # Replace with function body.
+
+# если ты проиграл закрытие игры
+func _on_area_3d_2_body_entered(body):
+	if body is CharacterBody3D:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		get_tree().paused = true
+		self.show()
+		get_tree().quit()  
+	pass # Replace with function body.
