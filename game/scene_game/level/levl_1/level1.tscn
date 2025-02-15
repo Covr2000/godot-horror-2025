@@ -82,7 +82,7 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.25993, 2.26875, 29.8359)
 
 [node name="map2" parent="." instance=ExtResource("1_3ebwg")]
-transform = Transform3D(1.4124, 0, 0, 0, 4.60385, 0, 0, 0, 1.78355, -1.90531, 2.24769, 0)
+transform = Transform3D(1.4124, 0, 0, 0, 2.6843, 0, 0, 0, 1.78355, -1.90531, 2.24769, 0)
 
 [node name="door" parent="." instance=ExtResource("8_ud4u5")]
 transform = Transform3D(4.29291, 0, 0, 0, 4.29291, 0, 0, 0, 4.29291, -13.1331, 5.00603, -12.0546)
