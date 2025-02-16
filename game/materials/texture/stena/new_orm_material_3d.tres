@@ -1,0 +1,19 @@
+[gd_resource type="ORMMaterial3D" load_steps=5 format=3 uid="uid://ptkfllgpmsol"]
+
+[ext_resource type="Texture2D" uid="uid://c6otlid2xycof" path="res://materials/texture/stena/TCom_Wall_Plaster2_header3.jpg" id="1_jum4f"]
+[ext_resource type="Texture2D" uid="uid://blr8h0346wvyt" path="res://materials/texture/stena/Без названия (2).png" id="2_q8wsj"]
+[ext_resource type="Texture2D" uid="uid://cat87oi2m45s" path="res://materials/texture/stena/Без названия.png" id="3_q7wld"]
+[ext_resource type="Texture2D" uid="uid://buffxtl135rep" path="res://materials/texture/stena/Без названия (1).png" id="4_5her4"]
+
+[resource]
+diffuse_mode = 1
+disable_ambient_light = true
+albedo_texture = ExtResource("1_jum4f")
+albedo_texture_force_srgb = true
+orm_texture = ExtResource("3_q7wld")
+normal_enabled = true
+normal_scale = -0.74
+normal_texture = ExtResource("2_q8wsj")
+rim_texture = ExtResource("4_5her4")
+uv1_triplanar_sharpness = 0.594604
+disable_receive_shadows = true

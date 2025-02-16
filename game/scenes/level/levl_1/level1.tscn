@@ -87,6 +87,27 @@ transform = Transform3D(1.4124, 0, 0, 0, 2.6843, 0, 0, 0, 1.78355, -1.90531, 2.2
 [node name="door" parent="." instance=ExtResource("8_ud4u5")]
 transform = Transform3D(4.29291, 0, 0, 0, 4.29291, 0, 0, 0, 4.29291, -13.1331, 5.00603, -12.0546)
 
+[node name="door2" parent="." instance=ExtResource("8_ud4u5")]
+transform = Transform3D(4.29291, 0, 0, 0, 4.29291, 0, 0, 0, 4.29291, -28.8299, 5.00603, -5.22605)
+
+[node name="door3" parent="." instance=ExtResource("8_ud4u5")]
+transform = Transform3D(4.7994, 0, 0, 0, 4.29291, 0, 0, 0, 4.29291, -44.1155, 5.00603, -23.4421)
+
+[node name="door4" parent="." instance=ExtResource("8_ud4u5")]
+transform = Transform3D(-2.09788e-07, 0, 4.29291, 0, 4.29291, 0, -4.7994, 0, -1.87649e-07, -22.0557, 5.00603, 0.0113073)
+
+[node name="door5" parent="." instance=ExtResource("8_ud4u5")]
+transform = Transform3D(-4.7994, 0, -3.75298e-07, 0, 4.29291, 0, 4.19577e-07, 0, -4.29291, -12.4347, 5.00603, 23.1993)
+
+[node name="door6" parent="." instance=ExtResource("8_ud4u5")]
+transform = Transform3D(-4.7994, 0, -3.75298e-07, 0, 4.29291, 0, 4.19577e-07, 0, -4.29291, 10.9049, 5.00603, -6.31009)
+
+[node name="door7" parent="." instance=ExtResource("8_ud4u5")]
+transform = Transform3D(-4.7994, 0, -3.75298e-07, 0, 4.29291, 0, 4.19577e-07, 0, -4.29291, 10.9049, 5.00603, -27.6412)
+
+[node name="door8" parent="." instance=ExtResource("8_ud4u5")]
+transform = Transform3D(-2.09788e-07, 0, 4.29291, 0, 4.29291, 0, -4.7994, 0, -1.87649e-07, -25.4905, 5.00603, 36.0624)
+
 [node name="spawn_lamps" type="Node3D" parent="."]
 script = ExtResource("6_hh3ju")
 
