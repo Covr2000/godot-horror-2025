@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5f04vuxlvf4l"]
+
+[ext_resource type="Script" path="res://objects/сharacters/player/character_body_3d.gd" id="1_m1jui"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_60xqo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_14rvb"]
+
+[node name="player" type="Node3D"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.06565, 0)
+light_energy = 1.882
+spot_range = 53.6418
+spot_angle = 50.3562
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_m1jui")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35495, 0)
+shadow_enabled = true
+omni_range = 9.9241
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.90079, -0.0231365)
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16958, 0)
+mesh = SubResource("CapsuleMesh_60xqo")
+skeleton = NodePath("")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1.87473, 0, 0, 0, 1, 0, 1.16958, 0)
+shape = SubResource("BoxShape3D_14rvb")
+metadata/_edit_group_ = true
+
+[node name="Control" type="Control" parent="CharacterBody3D"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CharacterBody3D/Control"]
+layout_mode = 2
+offset_right = 40.0
+offset_bottom = 23.0
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="CharacterBody3D/Control"]
+layout_mode = 0
+offset_top = -3.0
+offset_right = 40.0
+offset_bottom = 3.0
+
+[node name="ColorRect" type="ColorRect" parent="CharacterBody3D/Control"]
+layout_mode = 0
+offset_top = -3.0
+offset_right = 9.0
+offset_bottom = 3.0
+color = Color(0.344076, 0.344076, 0.344076, 1)

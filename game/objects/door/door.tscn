@@ -1,0 +1,160 @@
+[gd_scene load_steps=13 format=3 uid="uid://t1lc0d1go08c"]
+
+[ext_resource type="Script" path="res://objects/door/door.gd" id="1_xj0x4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yu8wi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ynulq"]
+albedo_color = Color(0.501961, 0.25098, 0.188235, 1)
+metallic = 0.4
+metallic_specular = 0.15
+roughness = 0.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jfrp1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_pa8sa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hiuwl"]
+albedo_color = Color(0.501961, 0.25098, 0.188235, 1)
+metallic = 0.4
+metallic_specular = 0.15
+roughness = 0.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h68v1"]
+
+[sub_resource type="Animation" id="Animation_504wh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftPivotDoor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2, -0.7, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightPivotDoor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2, -0.7, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_glbft"]
+resource_name = "horizontal_open_doors"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightPivotDoor:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1, -0.7, 0), Vector3(-2, -0.7, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftPivotDoor:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, -0.7, 0), Vector3(2, -0.7, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_srwo1"]
+resource_name = "open_doors"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftPivotDoor:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightPivotDoor:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.5708, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l5d0g"]
+_data = {
+"RESET": SubResource("Animation_504wh"),
+"horizontal_open_doors": SubResource("Animation_glbft"),
+"open_doors": SubResource("Animation_srwo1")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ugm4m"]
+size = Vector3(2.04309, 1.55008, 1.48935)
+
+[node name="door" type="Node3D"]
+script = ExtResource("1_xj0x4")
+
+[node name="RightPivotDoor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.7, 0)
+
+[node name="door_right" type="MeshInstance3D" parent="RightPivotDoor"]
+transform = Transform3D(1.01446, 0, 0, 0, 1.41322, 0, 0, 0, 0.0985111, 0.5, 0.7, 0)
+mesh = SubResource("BoxMesh_yu8wi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ynulq")
+
+[node name="body" type="StaticBody3D" parent="RightPivotDoor/door_right"]
+
+[node name="shape" type="CollisionShape3D" parent="RightPivotDoor/door_right/body"]
+shape = SubResource("BoxShape3D_jfrp1")
+
+[node name="LeftPivotDoor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.7, 0)
+
+[node name="door_left" type="MeshInstance3D" parent="LeftPivotDoor"]
+transform = Transform3D(1.01446, 0, 0, 0, 1.41322, 0, 0, 0, 0.0985111, -0.5, 0.7, 0)
+mesh = SubResource("BoxMesh_pa8sa")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_hiuwl")
+
+[node name="body" type="StaticBody3D" parent="LeftPivotDoor/door_left"]
+
+[node name="shape" type="CollisionShape3D" parent="LeftPivotDoor/door_left/body"]
+shape = SubResource("BoxShape3D_h68v1")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_l5d0g")
+}
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_ugm4m")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

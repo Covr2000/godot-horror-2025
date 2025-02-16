@@ -1,0 +1,106 @@
+[gd_scene load_steps=3 format=3 uid="uid://0g0erji4d2cw"]
+
+[ext_resource type="Texture2D" uid="uid://cdq83ivchaukr" path="res://icon.svg" id="1_op0m6"]
+[ext_resource type="Script" path="res://scenes/menu/license/button_back_main.gd" id="2_wyddg"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_vertical_guides_ = [61.0, 386.0]
+metadata/_edit_horizontal_guides_ = [66.0, 97.0, 552.0]
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -554.0
+offset_top = -316.0
+offset_right = 554.0
+offset_bottom = 316.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 89.0
+offset_right = 366.0
+offset_bottom = 526.0
+text = "Аlexusep - Лавер уточек. (Программист, разработчик, креатор, основатель) 
+
+PanLPrext - лубрикант, умственно отсталый программист. Дол%*еб по мнению сестры. ( Дракоеборец (по мнению сестры), основатель)   
+
+"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 89.0
+offset_right = 1051.0
+offset_bottom = 526.0
+text = "This game uses Godot Engine, available under the following license:
+
+Copyright (c) 2014-present Godot Engine contributors.
+Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the \"Software\"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE."
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 32.0
+offset_right = 274.0
+offset_bottom = 71.0
+theme_override_font_sizes/font_size = 28
+text = "Создатели игры
+"
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 32.0
+offset_right = 618.0
+offset_bottom = 71.0
+theme_override_font_sizes/font_size = 28
+text = "Лицензия Godot"
+
+[node name="Icon" type="Sprite2D" parent="Panel"]
+position = Vector2(1040, 581)
+scale = Vector2(0.367188, 0.367188)
+texture = ExtResource("1_op0m6")
+
+[node name="go_to_menu" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 548.0
+offset_right = 284.0
+offset_bottom = 606.0
+text = "Назад"
+script = ExtResource("2_wyddg")
+
+[connection signal="pressed" from="Panel/go_to_menu" to="Panel/go_to_menu" method="_on_pressed"]

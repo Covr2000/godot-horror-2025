@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Спасибо что вместе разрабатываем"
-run/main_scene="res://scene_game/menu/main/manu.tscn"
+run/main_scene="res://scenes/menu/main/menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://scene_game/level/target.gd"
+Global="*res://scenes/level/target.gd"
 GlobalPlayer="*res://GlobalScript/global_player.gd"
 
 [editor]

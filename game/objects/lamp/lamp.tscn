@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://mk4j1c711nfk"]
+
+[ext_resource type="ArrayMesh" uid="uid://bhyfym0c63fbw" path="res://objects/lamp/bulb.obj" id="1_dpu6m"]
+[ext_resource type="Script" path="res://objects/lamp/bulb.gd" id="2_1b4m5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_crqi3"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 0.247059, 1)
+
+[sub_resource type="Animation" id="Animation_703s4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-3.907, 0.4, 1.837)]
+}
+
+[sub_resource type="Animation" id="Animation_drlt1"]
+resource_name = "anim_lie"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0353, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-3.907, 0.3, 1.837), Vector3(-3.907, 1, 1.837), Vector3(-3.907, 0.3, 1.837)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y2o8r"]
+_data = {
+"RESET": SubResource("Animation_703s4"),
+"anim_lie": SubResource("Animation_drlt1")
+}
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0xcff"]
+radius = 3.35377
+
+[node name="Object" type="Node3D"]
+transform = Transform3D(0.376127, 0, 0, 0, 0.376127, 0, 0, 0, 0.376127, 0, 0, 0)
+
+[node name="Bulb" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.367118, 0, 0, 0, 0.367118, 0, 0, 0, 0.367118, -3.907, 0.4, 1.837)
+mesh = ExtResource("1_dpu6m")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_crqi3")
+script = ExtResource("2_1b4m5")
+
+[node name="anim" type="AnimationPlayer" parent="Bulb"]
+libraries = {
+"": SubResource("AnimationLibrary_y2o8r")
+}
+
+[node name="Area3D" type="Area3D" parent="Bulb"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0291214, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bulb/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.48314, 0)
+shape = SubResource("SphereShape3D_0xcff")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(1, 1, 0.0745098, 1)
+light_energy = 16.0
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.378
+omni_range = 0.429823
+
+[connection signal="body_entered" from="Bulb/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Bulb/Area3D" to="Bulb" method="_on_area_3d_body_entered"]
