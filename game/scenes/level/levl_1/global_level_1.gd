@@ -5,8 +5,8 @@ var local_anim_on = false
 
 
 func _ready():
-	#print($palyer.transform.origin)
-	GlobalPlayer.GPlayerPosition_1 = $palyer.transform.origin 
+	#print($player.transform.origin)
+	GlobalPlayer.GPlayerPosition_1 = $player.transform.origin 
 	#a.play("kat")
 	
 	

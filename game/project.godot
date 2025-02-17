@@ -11,19 +11,27 @@ config_version=5
 [application]
 
 config/name="Спасибо что вместе разрабатываем"
-run/main_scene="res://scenes/menu/main/menu.tscn"
+run/main_scene="res://scenes/menu/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://scenes/level/target.gd"
 GlobalPlayer="*res://GlobalScript/global_player.gd"
+SettingsHandler="*res://GlobalScript/SettingsHandler.gd"
 
 [editor]
 
 movie_writer/movie_file="C:/Users/AMDPANLEXT/Documents/character-movement-plus-camera/video.avi"
+
+[file_customization]
+
+folder_colors={
+"res://objects/сharacters/simple_player/": "red",
+"res://scenes/level/levl_1/": "red",
+"res://scenes/menu/": "red"
+}
 
 [input]
 

@@ -1,0 +1,125 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6wmqp0buuk5m"]
+
+[ext_resource type="Script" path="res://scenes/menu/playerGUI.gd" id="1_c433t"]
+[ext_resource type="Script" path="res://scenes/menu/pause_node.gd" id="2_6p6n6"]
+[ext_resource type="PackedScene" uid="uid://bs035oor8cgug" path="res://scenes/menu/SettingsWindow.tscn" id="4_48uxn"]
+
+[node name="PlayerGUI" type="CanvasLayer"]
+script = ExtResource("1_c433t")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(576, 324)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.5
+offset_top = -11.5
+offset_right = 139.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+
+[node name="PauseNode" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(581, 319)
+script = ExtResource("2_6p6n6")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="PauseNode"]
+layout_mode = 0
+anchor_right = 1.00781
+anchor_bottom = 1.0108
+pivot_offset = Vector2(581, 328)
+color = Color(0, 0, 0, 0.52549)
+
+[node name="Settings" parent="PauseNode" instance=ExtResource("4_48uxn")]
+visible = false
+layout_mode = 1
+offset_left = -245.0
+offset_top = -188.0
+offset_right = 245.0
+offset_bottom = 188.0
+
+[node name="Main" type="Control" parent="PauseNode"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PauseNode/Main"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 46.0
+offset_top = -88.0
+offset_right = 340.0
+offset_bottom = -30.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "GAME PAUSED"
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseNode/Main"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -25.0
+offset_right = 283.0
+offset_bottom = 111.0
+grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="Button" type="Button" parent="PauseNode/Main/VBoxContainer"]
+layout_mode = 2
+text = "Continue"
+
+[node name="Button2" type="Button" parent="PauseNode/Main/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Button3" type="Button" parent="PauseNode/Main/VBoxContainer"]
+layout_mode = 2
+text = "Main menu"
+
+[node name="Button4" type="Button" parent="PauseNode/Main/VBoxContainer"]
+layout_mode = 2
+text = "Exit "
+
+[node name="DebugInfoLabel" type="Label" parent="."]
+offset_right = 185.0
+offset_bottom = 94.0
+theme_override_font_sizes/font_size = 18
+text = "hi"
+
+[connection signal="Closing" from="PauseNode/Settings" to="PauseNode" method="_on_close_button"]
+[connection signal="pressed" from="PauseNode/Main/VBoxContainer/Button" to="PauseNode" method="_unpause"]
+[connection signal="pressed" from="PauseNode/Main/VBoxContainer/Button2" to="PauseNode" method="_settings"]
+[connection signal="pressed" from="PauseNode/Main/VBoxContainer/Button3" to="PauseNode" method="_quit"]
+[connection signal="pressed" from="PauseNode/Main/VBoxContainer/Button4" to="PauseNode" method="_actually_quit"]

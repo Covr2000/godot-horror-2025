@@ -1,0 +1,226 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 18.04.2023 19:41:33
+
+newmtl F00_000_Hair_00_HAIR_01_002
+	Ns 43.2193
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.2000 0.2000 0.2000
+	Kd 0.8000 0.8000 0.8000
+	Ks 0.2000 0.2000 0.2000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat9_c.jpg
+	map_Kd C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat9_c.jpg
+
+newmtl F00_000_Hair_00_HAIR_02_002
+	Ns 43.2193
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.2000 0.2000 0.2000
+	Kd 0.8000 0.8000 0.8000
+	Ks 0.2000 0.2000 0.2000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat10_c.jpg
+	map_Kd C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat10_c.jpg
+
+newmtl F00_000_00_FaceMouth_00_FACE_002
+	Ns 43.2193
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.2000 0.2000 0.2000
+	Kd 0.8000 0.8000 0.8000
+	Ks 0.2000 0.2000 0.2000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat7_c.jpg
+	map_Kd C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat7_c.jpg
+
+newmtl F00_000_00_EyeWhite_00_EYE_002
+	Ns 43.2193
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.2000 0.2000 0.2000
+	Kd 0.8000 0.8000 0.8000
+	Ks 0.2000 0.2000 0.2000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat3_c.jpg
+	map_Kd C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat3_c.jpg
+
+newmtl F00_000_00_FaceEyeline_00_FACE_002
+	Ns 43.2193
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.2000 0.2000 0.2000
+	Kd 0.8000 0.8000 0.8000
+	Ks 0.2000 0.2000 0.2000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka mat6_c.jpg
+	map_Kd mat6_c.jpg
+
+newmtl F00_000_00_FaceEyelash_00_FACE_002
+	Ns 43.2193
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.2000 0.2000 0.2000
+	Kd 0.8000 0.8000 0.8000
+	Ks 0.2000 0.2000 0.2000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat5_c.jpg
+	map_Kd C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat5_c.jpg
+
+newmtl F00_000_00_FaceBrow_00_FACE_002
+	Ns 43.2193
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.2000 0.2000 0.2000
+	Kd 0.8000 0.8000 0.8000
+	Ks 0.2000 0.2000 0.2000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat4_c.jpg
+	map_Kd C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat4_c.jpg
+
+newmtl F00_000_00_EyeIris_00_EYE_002
+	Ns 43.2193
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.2000 0.2000 0.2000
+	Kd 0.8000 0.8000 0.8000
+	Ks 0.2000 0.2000 0.2000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat2_c.jpg
+	map_Kd C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat2_c.jpg
+
+newmtl F00_000_00_EyeHighlight_00_EYE_002
+	Ns 43.2193
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.2000 0.2000 0.2000
+	Kd 0.8000 0.8000 0.8000
+	Ks 0.2000 0.2000 0.2000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat1_c.jpg
+	map_Kd C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat1_c.jpg
+
+newmtl F00_000_00_Face_00_SKIN_002
+	Ns 43.2193
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.2000 0.2000 0.2000
+	Kd 0.8000 0.8000 0.8000
+	Ks 0.2000 0.2000 0.2000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat8_c.jpg
+	map_Kd C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat8_c.jpg
+
+newmtl F00_000_00_EyeExtra_01_EYE_002
+	Ns 43.2193
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.2000 0.2000 0.2000
+	Kd 0.8000 0.8000 0.8000
+	Ks 0.2000 0.2000 0.2000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat0_c.jpg
+	map_Kd C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat0_c.jpg
+
+newmtl F00_003_01_Body_00_SKIN_002
+	Ns 43.2193
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.2000 0.2000 0.2000
+	Kd 0.8000 0.8000 0.8000
+	Ks 0.2000 0.2000 0.2000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat12_c.jpg
+	map_Kd C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat12_c.jpg
+
+newmtl F00_006_01_Tops_01_CLOTH_002
+	Ns 43.2193
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.2000 0.2000 0.2000
+	Kd 0.8000 0.8000 0.8000
+	Ks 0.2000 0.2000 0.2000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat13_c.jpg
+	map_Kd C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat13_c.jpg
+
+newmtl F00_001_01_Bottoms_01_CLOTH_002
+	Ns 43.2193
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.2000 0.2000 0.2000
+	Kd 0.8000 0.8000 0.8000
+	Ks 0.2000 0.2000 0.2000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat11_c.jpg
+	map_Kd C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat11_c.jpg
+
+newmtl F00_007_01_Shoes_01_CLOTH_002
+	Ns 43.2193
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.2000 0.2000 0.2000
+	Kd 0.8000 0.8000 0.8000
+	Ks 0.2000 0.2000 0.2000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat14_c.jpg
+	map_Kd C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat14_c.jpg
+
+newmtl Material_001
+	Ns 43.2193
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.2000 0.2000 0.2000
+	Kd 0.8000 0.8000 0.8000
+	Ks 0.2000 0.2000 0.2000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat15_c.jpg
+	map_Kd C:\Users\prime\Desktop\Work\_Work\Kitsune\Kitsune\mat15_c.jpg

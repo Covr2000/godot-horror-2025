@@ -1,0 +1,90 @@
+[gd_scene load_steps=3 format=3 uid="uid://0g0erji4d2cw"]
+
+[ext_resource type="Texture2D" uid="uid://cdq83ivchaukr" path="res://icon.svg" id="1_dk212"]
+[ext_resource type="Script" path="res://scenes/menu/license.gd" id="2_kctr7"]
+
+[node name="Panel" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2_kctr7")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 89.0
+offset_right = 366.0
+offset_bottom = 526.0
+text = "Аlexusep - Лавер уточек. (Программист, разработчик, креатор, основатель) 
+
+PanLPrext - лубрикант, умственно отсталый программист. Дол%*еб по мнению сестры. ( Дракоеборец (по мнению сестры), основатель)   
+
+"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 89.0
+offset_right = 1051.0
+offset_bottom = 526.0
+text = "This game uses Godot Engine, available under the following license:
+
+Copyright (c) 2014-present Godot Engine contributors.
+Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the \"Software\"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE."
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 32.0
+offset_right = 274.0
+offset_bottom = 71.0
+theme_override_font_sizes/font_size = 28
+text = "Создатели игры
+"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 32.0
+offset_right = 618.0
+offset_bottom = 71.0
+theme_override_font_sizes/font_size = 28
+text = "Лицензия Godot"
+
+[node name="Icon" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1040, 581)
+scale = Vector2(0.367188, 0.367188)
+texture = ExtResource("1_dk212")
+
+[node name="ButtonClose" type="Button" parent="."]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 548.0
+offset_right = 284.0
+offset_bottom = 606.0
+text = "Назад"
+
+[connection signal="pressed" from="ButtonClose" to="." method="_on_button_close_pressed"]

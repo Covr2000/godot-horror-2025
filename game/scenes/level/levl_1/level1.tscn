@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://ckufsg68innlq" path="res://scenes/level/levl_1/map2.tscn" id="1_3ebwg"]
 [ext_resource type="Script" path="res://scenes/level/levl_1/global_level_1.gd" id="1_hkrnc"]
-[ext_resource type="PackedScene" uid="uid://b5f04vuxlvf4l" path="res://objects/сharacters/player/player.tscn" id="2_ioxo7"]
 [ext_resource type="Script" path="res://objects/lamp/spawn_lamps.gd" id="6_hh3ju"]
 [ext_resource type="PackedScene" uid="uid://mk4j1c711nfk" path="res://objects/lamp/lamp.tscn" id="6_lhoii"]
+[ext_resource type="PackedScene" uid="uid://brpt71jl5cg2q" path="res://objects/сharacters/simple_player/player2.tscn" id="8_5itpd"]
 [ext_resource type="Script" path="res://scenes/level/levl_1/marker_3d.gd" id="8_oolky"]
 [ext_resource type="PackedScene" uid="uid://t1lc0d1go08c" path="res://objects/door/door.tscn" id="8_ud4u5"]
 [ext_resource type="PackedScene" uid="uid://c80howba0phb2" path="res://objects/сharacters/enemy_ai _esey/enemy_ai _esey.tscn" id="9_x08f2"]
@@ -78,9 +78,6 @@ libraries = {
 "": SubResource("AnimationLibrary_fcgds")
 }
 
-[node name="palyer" parent="." instance=ExtResource("2_ioxo7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.25993, 2.26875, 29.8359)
-
 [node name="map2" parent="." instance=ExtResource("1_3ebwg")]
 transform = Transform3D(1.4124, 0, 0, 0, 2.6843, 0, 0, 0, 1.78355, -1.90531, 2.24769, 0)
 
@@ -118,10 +115,17 @@ transform = Transform3D(0.376127, 0, 0, 0, 0.376127, 0, 0, 0, 0.376127, -9.60312
 transform = Transform3D(0.376127, 0, 0, 0, 0.376127, 0, 0, 0, 0.376127, -14.7644, 3.78939, -3.13435)
 
 [node name="lblLamps" type="Label" parent="."]
-offset_left = 967.0
-offset_top = 218.0
-offset_right = 1120.0
-offset_bottom = 267.0
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -153.0
+offset_top = -24.5
+offset_bottom = 24.5
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_vertical = 1
 text = "ZAбрано лYмпачек
 0 / 0"
 horizontal_alignment = 2
@@ -160,3 +164,6 @@ mesh = SubResource("BoxMesh_kitqn")
 
 [node name="enemy_ai" parent="." instance=ExtResource("9_x08f2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.37402, 0)
+
+[node name="player" parent="." instance=ExtResource("8_5itpd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.38417, 3.83152, 0)

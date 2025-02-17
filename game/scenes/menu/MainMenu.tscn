@@ -1,0 +1,105 @@
+[gd_scene load_steps=5 format=3 uid="uid://r7ubs8piqnii"]
+
+[ext_resource type="Script" path="res://scenes/menu/MainMenu.gd" id="1_spenb"]
+[ext_resource type="Texture2D" uid="uid://bbk7vxjiekenx" path="res://materials/image/treugolnik_minimalizm_chernyj_108815_1680x1050.jpg" id="2_5mp7f"]
+[ext_resource type="PackedScene" uid="uid://bs035oor8cgug" path="res://scenes/menu/SettingsWindow.tscn" id="3_ooat4"]
+[ext_resource type="PackedScene" uid="uid://0g0erji4d2cw" path="res://scenes/menu/license.tscn" id="4_ygn4t"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_spenb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5mp7f")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -20.5
+anchor_top = -12.625
+anchor_right = 21.5
+anchor_bottom = 13.625
+offset_left = 820.0
+offset_top = 505.0
+offset_right = -820.0
+offset_bottom = -505.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.033
+anchor_top = 0.506
+anchor_right = 0.033
+anchor_bottom = 0.506
+offset_left = 3.98406
+offset_top = -111.888
+offset_right = 228.984
+offset_bottom = 86.112
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.33152, 1.33152)
+
+[node name="playButton" type="Button" parent="VBoxContainer"]
+modulate = Color(0.359069, 0.359069, 0.359069, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Начать игру"
+alignment = 0
+
+[node name="settingsButton" type="Button" parent="VBoxContainer"]
+modulate = Color(0.359069, 0.359069, 0.359069, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Настройки
+"
+flat = true
+alignment = 0
+
+[node name="licenseButton" type="Button" parent="VBoxContainer"]
+modulate = Color(0.359069, 0.359069, 0.359069, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Авторы
+"
+flat = true
+alignment = 0
+
+[node name="exitButton" type="Button" parent="VBoxContainer"]
+modulate = Color(0.359069, 0.359069, 0.359069, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Выход
+"
+flat = true
+alignment = 0
+
+[node name="Settings" parent="." instance=ExtResource("3_ooat4")]
+visible = false
+layout_mode = 1
+
+[node name="License" parent="." instance=ExtResource("4_ygn4t")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/playButton" to="." method="_on_play"]
+[connection signal="pressed" from="VBoxContainer/settingsButton" to="." method="_on_settings"]
+[connection signal="pressed" from="VBoxContainer/licenseButton" to="." method="_on_license"]
+[connection signal="pressed" from="VBoxContainer/exitButton" to="." method="_on_exit"]
+[connection signal="Closing" from="Settings" to="." method="_on_settings_closing"]
+[connection signal="Closing" from="License" to="." method="_on_license_closing"]
